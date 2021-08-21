@@ -1,11 +1,12 @@
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLoader } from "./LoaderProvider";
 
 export const AuthContext = createContext();
 
 const signUpService = (firstName, lastName, email, password) => {
-  return axios.post("https://mitra-cart-2.mittalminakshi.repl.co/user/signup", {
+  return axios.post("https://mitra-write.mittalminakshi.repl.co/user/signup", {
     firstName,
     lastName,
     email,
@@ -14,7 +15,7 @@ const signUpService = (firstName, lastName, email, password) => {
 };
 
 const loginService = (email, password) => {
-  return axios.post("https://mitra-cart-2.mittalminakshi.repl.co/user/login", {
+  return axios.post("https://mitra-write.mittalminakshi.repl.co/user/login", {
     email,
     password,
   });
@@ -35,6 +36,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(savedToken);
   const [userDetails, setUserDetails] = useState(userId);
   const navigate = useNavigate();
+  const { setLoader } = useLoader();
 
   const signUpUserWithDetails = async (
     firstName,
@@ -58,7 +60,8 @@ export const AuthProvider = ({ children }) => {
       const userLoginResponse = await loginService(email, password);
       if (userLoginResponse.status === 200) {
         loginUser(userLoginResponse.data);
-        navigate("/products");
+        setLoader("not loading");
+        navigate("/");
       }
     } catch (error) {
       console.error(error);
@@ -79,7 +82,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("login");
     setLogin(false);
     setToken(null);
-    navigate("/");
+    navigate("/login");
   };
 
   return (

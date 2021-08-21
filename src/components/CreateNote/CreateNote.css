@@ -1,0 +1,90 @@
+.create-note-container {
+  width: 60%;
+  background-color: transparent;
+  height: 30vh;
+  border-radius: 0.5rem;
+  margin: 3rem;
+  position: relative;
+  border: 1px solid gray;
+}
+
+.title-input,
+textarea {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  padding-bottom: 0.3rem;
+  outline: none;
+  caret-color: gray;
+  color: gray;
+}
+
+.title-input {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+::placeholder {
+  color: gray;
+  padding: 0;
+  font-size: 1rem;
+}
+
+textarea {
+  padding: 1rem;
+  font-size: 1rem;
+  resize: none;
+}
+
+.far.fa-bookmark {
+  color: gray;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.button.primary-btn.note {
+  width: 15%;
+  opacity: 0.4;
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
+
+.button.primary-btn.note:hover {
+  opacity: 1;
+}
+
+.fas.fa-palette {
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  color: gray;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.fas.fa-palette:hover,
+.fas.fa-archive:hover,
+.fas.fa-tags:hover {
+  font-size: larger;
+}
+
+.fas.fa-archive {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  left: 8rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.fas.fa-tags {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  left: 14rem;
+  color: gray;
+  cursor: pointer;
+}
