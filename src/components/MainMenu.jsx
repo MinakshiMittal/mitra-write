@@ -16,7 +16,7 @@ export const MainMenu = () => {
         MITRA WRITE
       </div>
       <i
-        class="fas fa-sign-out-alt"
+        className="fas fa-sign-out-alt"
         style={{ marginRight: "2rem", cursor: "pointer" }}
         onClick={() => logout()}
       ></i>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useLoader } from "./LoaderProvider";
 
 export const AuthContext = createContext();
@@ -31,6 +31,8 @@ export const AuthProvider = ({ children }) => {
     token: null,
     userId: null,
   };
+
+  const { state } = useLocation();
 
   const [isUserLogin, setLogin] = useState(isUserLoggedIn);
   const [token, setToken] = useState(savedToken);
@@ -72,6 +74,7 @@ export const AuthProvider = ({ children }) => {
     setToken(token);
     setLogin(true);
     setUserDetails(userId);
+    navigate(state?.from ? state.from : "/");
     localStorage.setItem(
       "login",
       JSON.stringify({ isUserLoggedIn: true, token, userId })
@@ -79,9 +82,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem("login");
-    setLogin(false);
     setToken(null);
+    setLogin(false);
+    localStorage?.removeItem("login");
+
     navigate("/login");
   };
 

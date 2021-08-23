@@ -37,7 +37,8 @@ textarea {
   resize: none;
 }
 
-.far.fa-bookmark {
+.far.fa-bookmark,
+.fas.fa-trash {
   color: gray;
   position: absolute;
   top: 1rem;
@@ -67,7 +68,7 @@ textarea {
 
 .fas.fa-palette:hover,
 .fas.fa-archive:hover,
-.fas.fa-tags:hover {
+.fas.fa-tag:hover {
   font-size: larger;
 }
 
@@ -80,11 +81,19 @@ textarea {
   cursor: pointer;
 }
 
-.fas.fa-tags {
+.fas.fa-tag {
   position: absolute;
   bottom: 0;
   padding: 1rem;
   left: 14rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.fas.fa-edit {
+  position: absolute;
+  top: 1rem;
+  right: 4rem;
   color: gray;
   cursor: pointer;
 }

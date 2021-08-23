@@ -1,4 +1,4 @@
-import { CreateNote, MainMenu, SideNav } from "../../components";
+import { CreateNote, MainMenu, NotesList, SideNav } from "../../components";
 import "./NotesListing.css";
 
 export const NotesListing = () => {
@@ -20,6 +20,8 @@ export const NotesListing = () => {
 
       <div className="component-display" style={{}}>
         <CreateNote />
+        <h2>Your Notes</h2>
+        <NotesList />
       </div>
     </div>
   );
