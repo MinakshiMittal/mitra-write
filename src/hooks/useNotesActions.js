@@ -21,8 +21,6 @@ export const useNotesActions = () => {
         }
       );
 
-      console.log("add", response);
-
       if (response.status === 200) {
         notesListDispatch({
           type: "ADD_TO_NOTES_LIST",
@@ -44,8 +42,6 @@ export const useNotesActions = () => {
           },
         }
       );
-
-      console.log("remove", response);
 
       if (response.status === 200) {
         notesListDispatch({
@@ -74,8 +70,6 @@ export const useNotesActions = () => {
         }
       );
 
-      console.log(response);
-
       if (response.status === 200) {
         notesListDispatch({
           type: "EDIT_NOTE",
@@ -83,28 +77,9 @@ export const useNotesActions = () => {
         });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
-
-  // const addToArchiveNotes = async (noteId) => {
-  //   try {
-  //     const response = await axios.post(
-  //       `https://mitra-write.mittalminakshi.repl.co/notes/archived-notes/${noteId}`,
-  //       {
-  //         headers: {
-  //           authorization: token,
-  //         },
-  //       }
-  //     );
-
-  //     if(response.status === 200) {
-
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
   return { addToNotesList, removeFromNotesList, editNote };
 };

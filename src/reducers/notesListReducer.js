@@ -13,7 +13,6 @@ export const notesListReducer = (state, action) => {
       };
 
     case "ADD_TO_NOTES_LIST":
-      console.log("payload", action.payload);
       return {
         ...state,
         notesList: [...action.payload.notesList],

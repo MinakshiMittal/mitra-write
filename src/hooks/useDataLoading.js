@@ -20,7 +20,6 @@ export const useDataLoading = () => {
               },
             }
           );
-          console.log("response", response);
           if (response.status === 200) {
             notesListDispatch({
               type: "FETCH_NOTES_LIST_SUCCESS",
@@ -46,7 +45,6 @@ export const useDataLoading = () => {
               },
             }
           );
-          console.log("archived response", response);
           if (response.status === 200) {
             archivedNotesListDispatch({
               type: "FETCH_ARCHIVED_NOTES_LIST_SUCCESS",

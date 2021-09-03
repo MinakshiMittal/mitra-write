@@ -5,7 +5,6 @@ export const NotesList = () => {
   const {
     state: { notesList },
   } = useNotesList();
-  console.log(notesList);
   return (
     <>
       {notesList.map((note) => {

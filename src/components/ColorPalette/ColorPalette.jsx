@@ -1,8 +1,6 @@
-import { useCreateNotes } from "../../contexts";
 import "./ColorPalette.css";
 
-export const ColorPalette = () => {
-  const { setBackground } = useCreateNotes();
+export const ColorPalette = ({ setBackground }) => {
   return (
     <div className="palette-container">
       <div

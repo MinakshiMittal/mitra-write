@@ -13,7 +13,6 @@ export const archivedNotesListReducer = (state, action) => {
       };
 
     case "ADD_TO_ARCHIVED_NOTES_LIST":
-      console.log("payload", action.payload);
       return {
         ...state,
         archivedNotesList: [...action.payload.archivedNotesList],

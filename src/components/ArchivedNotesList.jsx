@@ -5,7 +5,6 @@ export const ArchivedNotesList = () => {
   const {
     state: { archivedNotesList },
   } = useArchivedNotesList();
-  console.log(archivedNotesList);
   return (
     <>
       {archivedNotesList.map((note) => {

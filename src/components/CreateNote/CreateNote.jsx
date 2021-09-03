@@ -1,13 +1,13 @@
-import { useCreateNotes } from "../../contexts";
+import { useState } from "react";
 import { useNotesActions } from "../../hooks/useNotesActions";
 import { ColorPalette } from "../ColorPalette/ColorPalette";
 import "./CreateNote.css";
 
 export const CreateNote = () => {
-  const { title, setTitle, content, setContent, background } = useCreateNotes();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [background, setBackground] = useState("");
   const { addToNotesList } = useNotesActions();
-
-  console.log("background", background);
 
   const createNoteHandler = (event) => {
     event.preventDefault();
@@ -39,7 +39,7 @@ export const CreateNote = () => {
         </button>
       </form>
       <i className="fas fa-palette"></i>
-      <ColorPalette />
+      <ColorPalette setBackground={setBackground} />
       <i className="fas fa-archive"></i>
       {/* <i className="fas fa-tag"></i> */}
     </div>

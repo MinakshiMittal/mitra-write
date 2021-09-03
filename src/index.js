@@ -8,7 +8,6 @@ import {
   AuthProvider,
   LoaderProvider,
   NotesListProvider,
-  CreateNotesProvider,
   ArchivedNotesListProvider,
 } from "./contexts";
 
@@ -18,11 +17,9 @@ ReactDOM.render(
       <LoaderProvider>
         <AuthProvider>
           <NotesListProvider>
-            <CreateNotesProvider>
-              <ArchivedNotesListProvider>
-                <App />
-              </ArchivedNotesListProvider>
-            </CreateNotesProvider>
+            <ArchivedNotesListProvider>
+              <App />
+            </ArchivedNotesListProvider>
           </NotesListProvider>
         </AuthProvider>
       </LoaderProvider>

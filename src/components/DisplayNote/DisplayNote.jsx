@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { useNotesActions } from "../hooks/useNotesActions";
-import { useArchivedNotesActions } from "../hooks/useArchivedNotesActions";
+import { useNotesActions } from "../../hooks/useNotesActions";
+import { useArchivedNotesActions } from "../../hooks/useArchivedNotesActions";
+import { ColorPalette } from "..";
+import "./DisplayNote.css";
 
 export const DisplayNote = ({ note }) => {
-  console.log(note);
   const { removeFromNotesList, editNote } = useNotesActions();
   const { addToArchivedNotesList } = useArchivedNotesActions();
 
   const [inputEditState, setInputEditState] = useState(true);
   const [editedTitle, setEditedTitle] = useState();
   const [editedContent, setEditedContent] = useState();
+  const [editedBackground, setEditedBackground] = useState();
   const [saveButtonDisplay, setSaveButtonDisplay] = useState("none");
 
   const editHandler = () => {
@@ -19,13 +21,12 @@ export const DisplayNote = ({ note }) => {
 
   const archiveHandler = (event) => {
     event.preventDefault();
-    console.log(note?._id);
     addToArchivedNotesList(note?._id);
   };
 
   return (
     <div
-      className="create-note-container"
+      className="create-note-container display"
       style={{ background: note?.background }}
     >
       <div>
@@ -43,6 +44,7 @@ export const DisplayNote = ({ note }) => {
           disabled={inputEditState}
           onChange={(event) => setEditedContent(event.target.value)}
         ></textarea>
+        <ColorPalette setBackground={setEditedBackground} />
       </div>
       {/* <i className="far fa-bookmark"></i> */}
       <i className="fas fa-edit" onClick={editHandler}></i>
@@ -54,7 +56,7 @@ export const DisplayNote = ({ note }) => {
         className="button primary-btn note"
         style={{ display: saveButtonDisplay }}
         onClick={() => {
-          editNote(editedTitle, editedContent, note?._id);
+          editNote(editedTitle, editedContent, editedBackground, note?._id);
           setSaveButtonDisplay("none");
           setInputEditState(true);
         }}
