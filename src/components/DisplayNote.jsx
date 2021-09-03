@@ -63,7 +63,7 @@ export const DisplayNote = ({ note }) => {
       </button>
       <i className="fas fa-palette"></i>
       <i className="fas fa-archive" onClick={archiveHandler}></i>
-      <i className="fas fa-tag"></i>
+      {/* <i className="fas fa-tag"></i> */}
     </div>
   );
 };

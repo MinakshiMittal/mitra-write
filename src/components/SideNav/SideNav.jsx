@@ -18,9 +18,9 @@ export const SideNav = () => {
       {/* <Link to="/history" style={{ textDecoration: "none" }}>
         <i className="fas fa-history icon-style"></i>
       </Link> */}
-      <Link to="/labels" style={{ textDecoration: "none" }}>
+      {/* <Link to="/labels" style={{ textDecoration: "none" }}>
         <i className="fas fa-tags nav"></i>
-      </Link>
+      </Link> */}
 
       {/* <img src={LightThemeIcon} alt="light theme icon" className="icon-style" /> */}
     </div>

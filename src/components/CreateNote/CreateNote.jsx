@@ -33,7 +33,7 @@ export const CreateNote = () => {
             onChange={(event) => setContent(event.target.value)}
           ></textarea>
         </div>
-        <i className="far fa-bookmark"></i>
+        {/* <i className="far fa-bookmark"></i> */}
         <button className="button primary-btn note" onClick={createNoteHandler}>
           Save
         </button>
@@ -41,7 +41,7 @@ export const CreateNote = () => {
       <i className="fas fa-palette"></i>
       <ColorPalette />
       <i className="fas fa-archive"></i>
-      <i className="fas fa-tag"></i>
+      {/* <i className="fas fa-tag"></i> */}
     </div>
   );
 };
