@@ -8,6 +8,7 @@ export const useArchivedNotesActions = () => {
   console.log(token);
 
   const addToArchivedNotesList = async (noteId) => {
+    console.log(noteId);
     try {
       const response = await axios.post(
         `https://mitra-write.mittalminakshi.repl.co/notes/archived-notes/${noteId}`,
