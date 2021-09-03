@@ -1,0 +1,46 @@
+.palette-container {
+  width: 18%;
+  height: 15vh;
+  position: absolute;
+  top: 10rem;
+  left: 0.5rem;
+  background: gray;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cbf0f8-color,
+.f28b82-color,
+.fdcfe8-color,
+.d7aefb-color,
+.ccff90-color {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.cbf0f8-color {
+  background-color: #cbf0f8;
+}
+
+.f28b82-color {
+  background-color: #f28b82;
+}
+
+.fdcfe8-color {
+  background-color: #fdcfe8;
+}
+
+.d7aefb-color {
+  background-color: #d7aefb;
+}
+
+.ccff90-color {
+  background-color: #ccff90;
+}

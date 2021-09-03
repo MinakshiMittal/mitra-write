@@ -4,7 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthProvider, LoaderProvider, NotesListProvider } from "./contexts";
+import {
+  AuthProvider,
+  LoaderProvider,
+  NotesListProvider,
+  CreateNotesProvider,
+  ArchivedNotesListProvider,
+} from "./contexts";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,7 +18,11 @@ ReactDOM.render(
       <LoaderProvider>
         <AuthProvider>
           <NotesListProvider>
-            <App />
+            <CreateNotesProvider>
+              <ArchivedNotesListProvider>
+                <App />
+              </ArchivedNotesListProvider>
+            </CreateNotesProvider>
           </NotesListProvider>
         </AuthProvider>
       </LoaderProvider>

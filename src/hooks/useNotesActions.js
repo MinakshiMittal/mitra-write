@@ -5,13 +5,14 @@ export const useNotesActions = () => {
   const { token } = useAuth();
   const { dispatch: notesListDispatch } = useNotesList();
 
-  const addToNotesList = async (title, content) => {
+  const addToNotesList = async (title, content, background) => {
     try {
       const response = await axios.post(
         `https://mitra-write.mittalminakshi.repl.co/notes`,
         {
           title,
           content,
+          background,
         },
         {
           headers: {
@@ -57,13 +58,14 @@ export const useNotesActions = () => {
     }
   };
 
-  const editNote = async (title, content, noteId) => {
+  const editNote = async (title, content, background, noteId) => {
     try {
       const response = await axios.post(
         `https://mitra-write.mittalminakshi.repl.co/notes/${noteId}`,
         {
           title,
           content,
+          background,
         },
         {
           headers: {
@@ -84,6 +86,25 @@ export const useNotesActions = () => {
       console.log(error);
     }
   };
+
+  // const addToArchiveNotes = async (noteId) => {
+  //   try {
+  //     const response = await axios.post(
+  //       `https://mitra-write.mittalminakshi.repl.co/notes/archived-notes/${noteId}`,
+  //       {
+  //         headers: {
+  //           authorization: token,
+  //         },
+  //       }
+  //     );
+
+  //     if(response.status === 200) {
+
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return { addToNotesList, removeFromNotesList, editNote };
 };
