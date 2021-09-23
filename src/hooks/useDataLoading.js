@@ -1,4 +1,9 @@
-import { useAuth, useNotesList, useArchivedNotesList } from "../contexts";
+import {
+  useAuth,
+  useNotesList,
+  useArchivedNotesList,
+  useBookmarkedNotesList,
+} from "../contexts";
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -7,6 +12,10 @@ export const useDataLoading = () => {
   const { state: notesListState, dispatch: notesListDispatch } = useNotesList();
   const { state: archivedNotesListState, dispatch: archivedNotesListDispatch } =
     useArchivedNotesList();
+  const {
+    state: bookmarkedNotesListState,
+    dispatch: bookmarkedNotesListDispatch,
+  } = useBookmarkedNotesList();
 
   useEffect(() => {
     (async () => {
@@ -61,4 +70,33 @@ export const useDataLoading = () => {
       }
     })();
   }, [archivedNotesListDispatch, token, archivedNotesListState]);
+
+  useEffect(() => {
+    (async () => {
+      if (token) {
+        try {
+          const response = await axios.get(
+            "https://mitra-write.mittalminakshi.repl.co/notes/bookmarked-notes",
+            {
+              headers: {
+                authorization: token,
+              },
+            }
+          );
+          if (response.status === 200) {
+            bookmarkedNotesListDispatch({
+              type: "FETCH_BOOKMARKED_NOTES_LIST_SUCCESS",
+              payload: {
+                bookmarkedNotesList: response.data.bookmarkedNotesList.notes,
+              },
+            });
+          }
+        } catch (error) {
+          bookmarkedNotesListDispatch({
+            type: "FETCH_BOOKMARKED_NOTES_LIST_ERROR",
+          });
+        }
+      }
+    })();
+  }, [bookmarkedNotesListDispatch, token, bookmarkedNotesListState]);
 };

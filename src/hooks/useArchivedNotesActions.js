@@ -7,14 +7,17 @@ export const useArchivedNotesActions = () => {
 
   const addToArchivedNotesList = async (noteId) => {
     try {
+      console.log(token);
       const response = await axios.post(
         `https://mitra-write.mittalminakshi.repl.co/notes/archived-notes/${noteId}`,
+        {},
         {
           headers: {
             authorization: token,
           },
         }
       );
+      console.log(response);
       if (response.status === 200) {
         archivedNotesListDispatch({
           type: "ADD_TO_ARCHIVED_NOTES_LIST",

@@ -5,3 +5,7 @@ export {
   ArchivedNotesListProvider,
   useArchivedNotesList,
 } from "./ArchivedNotesListProvider";
+export {
+  BookmarkedNotesListProvider,
+  useBookmarkedNotesList,
+} from "./BookmarkedNotesListProvider";

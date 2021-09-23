@@ -14,10 +14,11 @@ export const CreateNote = () => {
     addToNotesList(title, content, background);
     setContent("");
     setTitle("");
+    setBackground("");
   };
 
   return (
-    <div className="create-note-container">
+    <div className="create-note-container" style={{ background }}>
       <form>
         <div>
           <input

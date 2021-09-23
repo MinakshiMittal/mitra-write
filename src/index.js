@@ -9,6 +9,7 @@ import {
   LoaderProvider,
   NotesListProvider,
   ArchivedNotesListProvider,
+  BookmarkedNotesListProvider,
 } from "./contexts";
 
 ReactDOM.render(
@@ -18,7 +19,9 @@ ReactDOM.render(
         <AuthProvider>
           <NotesListProvider>
             <ArchivedNotesListProvider>
-              <App />
+              <BookmarkedNotesListProvider>
+                <App />
+              </BookmarkedNotesListProvider>
             </ArchivedNotesListProvider>
           </NotesListProvider>
         </AuthProvider>

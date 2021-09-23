@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNotesActions } from "../../hooks/useNotesActions";
 import { useArchivedNotesActions } from "../../hooks/useArchivedNotesActions";
 import { ColorPalette } from "..";
-import "./DisplayNote.css";
+import "./ArchivedNoteDisplay.css";
 
-export const DisplayNote = ({ note }) => {
-  const { removeFromNotesList, editNote } = useNotesActions();
-  const { addToArchivedNotesList } = useArchivedNotesActions();
+export const ArchivedNoteDisplay = ({ note }) => {
+  const { editNote } = useNotesActions();
+  const { removeFromArchivedNotesList } = useArchivedNotesActions();
 
   const [inputEditState, setInputEditState] = useState(true);
   const [editedTitle, setEditedTitle] = useState();
@@ -45,7 +45,7 @@ export const DisplayNote = ({ note }) => {
       <i className="fas fa-edit" onClick={editHandler}></i>
       <i
         className="fas fa-trash"
-        onClick={() => removeFromNotesList(note?._id)}
+        onClick={() => removeFromArchivedNotesList(note?._id)}
       ></i>
       <button
         className="button primary-btn note"
@@ -59,10 +59,10 @@ export const DisplayNote = ({ note }) => {
         Save
       </button>
       <i className="fas fa-palette"></i>
-      <i
+      {/* <i
         className="fas fa-archive"
         onClick={() => addToArchivedNotesList(note?._id)}
-      ></i>
+      ></i> */}
       {/* <i className="fas fa-tag"></i> */}
     </div>
   );

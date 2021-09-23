@@ -7,8 +7,8 @@ export const NotesList = () => {
   } = useNotesList();
   return (
     <>
-      {notesList.map((note) => {
-        return <DisplayNote note={note.note} key={note._id} />;
+      {notesList?.map((note) => {
+        return <DisplayNote note={note?.note} key={note?._id} />;
       })}
     </>
   );

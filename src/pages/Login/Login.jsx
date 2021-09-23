@@ -14,8 +14,8 @@ export const Login = () => {
   const navigate = useNavigate();
   const { loader, setLoader } = useLoader();
 
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("test@gmail.com");
+  const [password, setPassword] = useState("test");
 
   const loginHandler = (event) => {
     event.preventDefault();
@@ -35,12 +35,14 @@ export const Login = () => {
           <input
             type="email"
             placeholder="Your email"
+            value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
           <label>Password</label>
           <input
             type="password"
             placeholder="Enter your password"
+            value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
           <button className="button primary-btn" onClick={loginHandler}>

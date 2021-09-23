@@ -6,3 +6,4 @@ export { DisplayNote } from "./DisplayNote/DisplayNote";
 export { NotesList } from "./NotesList/NotesList";
 export { ColorPalette } from "./ColorPalette/ColorPalette";
 export { ArchivedNotesList } from "./ArchivedNotesList";
+export { ArchivedNoteDisplay } from "./ArchivedNoteDisplay/ArchivedNoteDisplay";

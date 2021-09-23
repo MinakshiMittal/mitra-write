@@ -1,5 +1,5 @@
 import { useArchivedNotesList } from "../contexts";
-import { DisplayNote } from "../components";
+import { ArchivedNoteDisplay } from "../components";
 
 export const ArchivedNotesList = () => {
   const {
@@ -8,7 +8,7 @@ export const ArchivedNotesList = () => {
   return (
     <>
       {archivedNotesList.map((note) => {
-        return <DisplayNote note={note.note} key={note._id} />;
+        return <ArchivedNoteDisplay note={note.note} key={note._id} />;
       })}
     </>
   );

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNotesActions } from "../../hooks/useNotesActions";
 import { useArchivedNotesActions } from "../../hooks/useArchivedNotesActions";
 import { ColorPalette } from "..";
-import "./DisplayNote.css";
+import "./BookMarkedNoteDisplay.css";
 
-export const DisplayNote = ({ note }) => {
+export const BookmarkedNoteDisplay = ({ note }) => {
   const { removeFromNotesList, editNote } = useNotesActions();
   const { addToArchivedNotesList } = useArchivedNotesActions();
 
@@ -41,7 +41,7 @@ export const DisplayNote = ({ note }) => {
         ></textarea>
         <ColorPalette setBackground={setEditedBackground} />
       </div>
-      {/* <i className="far fa-bookmark"></i> */}
+      <i className="far fa-bookmark"></i>
       <i className="fas fa-edit" onClick={editHandler}></i>
       <i
         className="fas fa-trash"
